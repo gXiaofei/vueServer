@@ -17,11 +17,11 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser('login'));
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'login',
-  cookie: {maxAge: 60000},
+  cookie: {maxAge: 300000},
   resave: true,
   saveUninitialized: true,
 }));
